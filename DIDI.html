@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns pelo Acesso!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #4caf50;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="message">Bem-vindo!</h1>
+    <p>Você acessou esta página <span id="accessCount">0</span> vezes.</p>
+    <a id="downloadLink" href="Vini.jpg" download>Baixe sua imagem especial!</a>
+
+    <script>
+        
+        let accessCount = localStorage.getItem('accessCount') || 0;
+        accessCount++;
+        localStorage.setItem('accessCount', accessCount);
+
+        document.getElementById('accessCount').innerText = accessCount;
+
+        
+        if (accessCount > 1) {
+            document.getElementById('message').innerText = `Parabéns por acessar ${accessCount} vezes!`;
+        } else {
+            document.getElementById('message').innerText = 'Parabéns pelo seu primeiro acesso!';
+        }
+    </script>
+
+</body>
+</html>
